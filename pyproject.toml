@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "venv-kernel"
+version = "1.0.0"
+description = "Create a custom jupyter kernel for your venv."
+authors = ["Björn Rüffer <bjoern@rueffer.info>"]
+readme = "README.md"
+license = "MIT"
+classifiers = [ # see https://pypi.org/classifiers/ for the complete list
+"Development Status :: 3 - Alpha",
+"Framework :: Jupyter",
+# "License :: OSI Approved :: MIT License", # set automatically by license 
+"Programming Language :: Python :: 3 :: Only",
+]
+
+[tool.poetry.scripts]
+venv-kernel = "venv_kernel.kernel_tool:app"
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+ipykernel = "^6.2"
+rich = "^10.7"
+typer = "^0.3.2"
+
+[tool.poetry.dev-dependencies]
+pytest = ""
+black = "^21.7"
+jedi = "^0.18"
+isort = "^5.9"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
