@@ -11,6 +11,7 @@ classifiers = [ # see https://pypi.org/classifiers/ for the complete list
 # "License :: OSI Approved :: MIT License", # set automatically by license 
 "Programming Language :: Python :: 3 :: Only",
 ]
+homepage = "https://github.com/bjoseru/venv-kernel"
 
 [tool.poetry.scripts]
 venv-kernel = "venv_kernel.kernel_tool:app"
