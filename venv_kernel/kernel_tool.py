@@ -73,7 +73,8 @@ def make_kernel(
         f.write(spec.to_json())
 
     jupyter_client.kernelspec.install_kernel_spec(
-        str(kernel_path), kernel_name=name, user=True, replace=True
+        str(kernel_path), kernel_name=name, user=True,
+        replace=True
     )
 
     print(f"Installed new kernel at\n[blue not bold]{kernel_path}.")
