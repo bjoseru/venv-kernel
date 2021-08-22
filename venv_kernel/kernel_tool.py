@@ -10,10 +10,7 @@ import pkg_resources
 from rich import print
 from typer import Option, Typer, Exit
 
-try:
-    __version__ = pkg_resources.get_distribution("venv-kernel").version
-except pkg_resources.DistributionNotFound:
-    __version__ = "DEV x.y.z"
+__version__ = "1.0.0"
 
 app = Typer(
     help=f"""

@@ -2,14 +2,15 @@ import os
 
 from typer.testing import CliRunner
 
-from venv_kernel import __version__
+from venv_kernel import __version__ as venv_kernel_version
 from venv_kernel.kernel_tool import app
 
+__version__ = "1.0.0"
 runner = CliRunner()
 
 
 def test_version():
-    assert (__version__ == "1.0.0") or (__version__ == "development version")
+    assert venv_kernel_version == __version__
 
 
 def test_make_kernel():
