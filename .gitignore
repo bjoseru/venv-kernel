@@ -1,0 +1,6 @@
+.coverage
+**.html
+dist/
+htmlcov/
+poetry.lock
+__pycache__/
