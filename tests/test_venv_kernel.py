@@ -5,7 +5,7 @@ from typer.testing import CliRunner
 from venv_kernel import __version__ as venv_kernel_version
 from venv_kernel.kernel_tool import app
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 runner = CliRunner()
 
 
