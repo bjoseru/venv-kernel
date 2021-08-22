@@ -1,5 +1,10 @@
 # venv-kernel #
 
+[![PyPI - latest version](https://img.shields.io/pypi/v/venv-kernel.svg)](https://pypi.org/project/venv-kernel/)
+[![PyPI - License](https://img.shields.io/pypi/l/venv-kernel.svg)](https://pypi.org/project/venv-kernel/)
+[![PyPI - supported Python versions](https://img.shields.io/pypi/pyversions/venv-kernel.svg)](https://pypi.org/project/venv-kernel/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/venv-kernel)](https://pypi.org/project/venv-kernel/)
+
 ## Summary ##
 
 This package creates jupyter kernels for the `venv` it is installed
