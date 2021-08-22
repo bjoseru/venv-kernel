@@ -10,10 +10,7 @@ import pkg_resources
 from rich import print
 from typer import Option, Typer, Exit
 
-try:
-    __version__ = pkg_resources.get_distribution("venv-kernel").version
-except pkg_resources.DistributionNotFound:
-    __version__ = "DEV x.y.z"
+__version__ = "1.0.0"
 
 app = Typer(
     help=f"""
@@ -73,7 +70,8 @@ def make_kernel(
         f.write(spec.to_json())
 
     jupyter_client.kernelspec.install_kernel_spec(
-        str(kernel_path), kernel_name=name, user=True, replace=True
+        str(kernel_path), kernel_name=name, user=True,
+        replace=True
     )
 
     print(f"Installed new kernel at\n[blue not bold]{kernel_path}.")
