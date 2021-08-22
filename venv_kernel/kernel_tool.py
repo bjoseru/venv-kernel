@@ -10,7 +10,7 @@ import pkg_resources
 from rich import print
 from typer import Option, Typer, Exit
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 app = Typer(
     help=f"""
