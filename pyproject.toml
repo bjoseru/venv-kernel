@@ -17,14 +17,14 @@ homepage = "https://github.com/bjoseru/venv-kernel"
 venv-kernel = "venv_kernel.kernel_tool:app"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-ipykernel = "^6.2"
+python = "^3.6"
+ipykernel = "^5.5"
 rich = "^10.7"
 typer = "^0.3.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2"
-ipykernel = "^6.2"
+ipykernel = "^5.5"
 rich = "^10.7"
 typer = "^0.3.2"
 
