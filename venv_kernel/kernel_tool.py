@@ -37,15 +37,18 @@ def make_kernel(
 ) -> None:
     "Create and install a jupyter kernel for the current venv."
     if not os.getenv("VIRTUAL_ENV"):
-        print('[red]You need to be in an active venv to use this tool.')
+        print("[red]You need to be in an active venv to use this tool.")
         raise Exit(code=1)
     venv_relative = Path(os.getenv("VIRTUAL_ENV"))
-    home_dir = os.getenv('HOME')
-    if venv_relative.is_relative_to(home_dir):
+    home_dir = os.getenv("HOME")
+    # if venv_relative.is_relative_to(home_dir): # only introduced in Python 3.9
+    try:
         venv_relative = venv_relative.relative_to(home_dir)
+    except ValueError:
+        pass  # indeed, this is not great, but is_relative_to isn't available in 3.6
     if display_name is None:
         display_name = (
-            f'\U0001F40D venv {str(venv_relative)} | '
+            f"\U0001F40D venv {str(venv_relative)} | "
             + f"Python {sys.version_info.major}.{sys.version_info.minor}."
             + f"{sys.version_info.micro}"
         )
@@ -75,7 +78,9 @@ def make_kernel(
         f.write(spec.to_json())
 
     jupyter_client.kernelspec.install_kernel_spec(
-        str(kernel_path), kernel_name=name, user=True,
+        str(kernel_path),
+        kernel_name=name,
+        user=True,
     )
 
     print(f"Installed new kernel at\n[blue not bold]{kernel_path}.")
