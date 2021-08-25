@@ -39,9 +39,13 @@ def make_kernel(
     if not os.getenv("VIRTUAL_ENV"):
         print('[red]You need to be in an active venv to use this tool.')
         raise Exit(code=1)
+    venv_relative = Path(os.getenv("VIRTUAL_ENV"))
+    home_dir = os.getenv('HOME')
+    if venv_relative.is_relative_to(home_dir):
+        venv_relative = venv_relative.relative_to(home_dir)
     if display_name is None:
         display_name = (
-            f'\U0001F40D venv {re.sub(os.getenv("HOME"), "~", os.getcwd())} | '
+            f'\U0001F40D venv {str(venv_relative)} | '
             + f"Python {sys.version_info.major}.{sys.version_info.minor}."
             + f"{sys.version_info.micro}"
         )
@@ -59,9 +63,10 @@ def make_kernel(
     )
 
     if name is None:
-        name = re.sub("/", " ", os.getenv("VIRTUAL_ENV")).strip()
+        name = re.sub("/", " ", str(venv_relative)).strip()
         name = re.sub(" ", "-", name)
-        name = re.sub("[^a-zA-Z0-9-]", "", name)
+        name = re.sub(r"\.", "_", name)
+        name = re.sub("[^a-zA-Z0-9_-]", "", name)
 
     kernel_path = Path(os.getenv("VIRTUAL_ENV")) / "kernels" / name
     kernel_path.mkdir(exist_ok=True, parents=True)
@@ -71,7 +76,6 @@ def make_kernel(
 
     jupyter_client.kernelspec.install_kernel_spec(
         str(kernel_path), kernel_name=name, user=True,
-        replace=True
     )
 
     print(f"Installed new kernel at\n[blue not bold]{kernel_path}.")
