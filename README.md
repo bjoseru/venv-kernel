@@ -12,8 +12,9 @@ in.
 
 ## Use-case scenario ##
 
-You maintain multiple virtual environments via python's `venv`. You
-want to be able to switch between them from within a _single_ jupyter
+You maintain multiple virtual environments via python's `venv` or the
+[`virtualenv` package](https://pypi.org/project/virtualenv/). You want
+to be able to switch between them from within a _single_ jupyter
 installation. How do you do this?
 
 You need a (user-) global jupyter installation. The recommended
