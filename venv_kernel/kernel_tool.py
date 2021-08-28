@@ -17,9 +17,8 @@ app = Typer(
 Create a custom jupyter kernel for your venv.
 
 Version {__version__}. Copyright 2021 Björn Rüffer. MIT License.
-""", add_completion=False
+""", add_completion=False,
 )
-
 
 
 @app.command(name="install")
