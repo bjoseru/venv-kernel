@@ -5,10 +5,10 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-import jupyter_client
+import jupyter_client  # type: ignore
 import pkg_resources
-from rich import print
-from typer import Option, Typer, Exit
+from rich import print  # type: ignore
+from typer import Option, Typer, Exit  # type: ignore
 
 __version__ = "1.0.5"
 
@@ -39,11 +39,11 @@ def make_kernel(
     if not os.getenv("VIRTUAL_ENV"):
         print("[red]You need to be in an active venv to use this tool.")
         raise Exit(code=1)
-    venv_relative = Path(os.getenv("VIRTUAL_ENV"))
+    venv_relative = Path(str(os.getenv("VIRTUAL_ENV")))
     home_dir = os.getenv("HOME")
     # if venv_relative.is_relative_to(home_dir): # only introduced in Python 3.9
     try:
-        venv_relative = venv_relative.relative_to(home_dir)
+        venv_relative = venv_relative.relative_to(str(home_dir))
     except ValueError:
         pass  # indeed, this is not great, but is_relative_to isn't available in 3.6
     if display_name is None:
@@ -71,7 +71,7 @@ def make_kernel(
         name = re.sub(r"\.", "_", name)
         name = re.sub("[^a-zA-Z0-9_-]", "", name)
 
-    kernel_path = Path(os.getenv("VIRTUAL_ENV")) / "kernels" / name
+    kernel_path = Path(str(os.getenv("VIRTUAL_ENV"))) / "kernels" / name
     kernel_path.mkdir(exist_ok=True, parents=True)
 
     with open(kernel_path / "kernel.json", "w") as f:
