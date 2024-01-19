@@ -20,13 +20,13 @@ venv-kernel = "venv_kernel.kernel_tool:app"
 python = "^3.6"
 ipykernel = ">=5.5, <7"
 rich = ">= 10.7"
-typer = "^0.3.2"
+typer = ">= 0.3.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2"
 ipykernel = ">=5.5, <7"
 rich = ">= 10.7"
-typer = "^0.3.2"
+typer = ">= 0.3.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
