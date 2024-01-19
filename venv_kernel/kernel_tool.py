@@ -16,7 +16,7 @@ app = Typer(
     help=f"""
 Create a custom jupyter kernel for your venv.
 
-Version {__version__}. Copyright 2021 Björn Rüffer. MIT License.
+Version {__version__}. Copyright 2021-2024 Björn Rüffer. MIT License.
 """, add_completion=False,
 )
 
