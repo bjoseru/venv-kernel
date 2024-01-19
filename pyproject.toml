@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "venv-kernel"
-version = "1.0.9"
+version = "1.0.10"
 description = "Create a custom jupyter kernel for your venv."
 authors = ["Björn Rüffer <bjoern@rueffer.info>"]
 readme = "README.md"
